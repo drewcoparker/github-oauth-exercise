@@ -1,1 +1,1 @@
-# github-oauth-exercise
+# github-oauth-exercise with GraphQL
