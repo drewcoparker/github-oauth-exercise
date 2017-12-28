@@ -1,29 +1,25 @@
+// React libraries
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+// Redux libraries
 import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
-import reduxPromise from 'redux-promise';
+import thunk from 'redux-thunk';
 import reducers from './reducers/masterReducer.js';
 
+// Router libraries
 import { Route, Switch } from 'react-router'
 import { Redirect } from 'react-router-dom'
 import { ConnectedRouter, routerReducer, routerMiddleware, push } from 'react-router-redux';
 import createHistory from 'history/createBrowserHistory';
 
+// Other libraries
 import './index.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 
 const history = createHistory()
-
-const authSuccess = () => ({
-    type: 'AUTH_SUCCESS'
-})
-
-const authFail = () => ({
-    type: 'AUTH_FAIL'
-})
 
 const initialState = {
     isAuthenticated: false,
@@ -35,7 +31,7 @@ const store = createStore(
     reducers,
     initialState,
     applyMiddleware(
-        reduxPromise,
+        thunk,
         routerMiddleware(history)
     )
 )
