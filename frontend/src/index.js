@@ -14,7 +14,7 @@ import { Redirect } from 'react-router-dom'
 import { ConnectedRouter, routerReducer, routerMiddleware, push } from 'react-router-redux';
 import createHistory from 'history/createBrowserHistory';
 
-// Other libraries
+// Local files
 import './index.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
@@ -22,9 +22,7 @@ import registerServiceWorker from './registerServiceWorker';
 const history = createHistory()
 
 const initialState = {
-    isAuthenticated: false,
-    isLoading: false,
-    hasErrored: false
+    isLoading: false
 }
 
 const store = createStore(
