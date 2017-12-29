@@ -10,8 +10,26 @@ class App extends Component {
 
     render() {
         console.log(this.props)
+        if (this.props.isLoading) {
+            return (
+                <div>...Loading</div>
+            )
+        }
+        if (this.props.error) {
+            return (
+                <div>The following error has occured: {this.props.error}</div>
+            )
+        }
         return (
-            <div className="App">asdf</div>
+            <div className="App">
+                <ul>
+                    {this.props.items.map((item) => (
+                        <li key={item.id}>
+                            {item.name}
+                        </li>
+                    ))}
+                </ul>
+            </div>
         );
     }
 }
